@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vatsal Negi| Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            left: -7.5px;
+            top: 0;
+            background: linear-gradient(135deg, #0ea5e9, #7e22ce);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #1e293b;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px rgba(2, 6, 23, 0.5), 
+                        -5px -5px 15px rgba(30, 41, 59, 0.5);
+        }
+        
+        .contact-input {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">Welcome</a>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-slate-200 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 nav-link active">Home</a>
+                <a href="#about" class="block py-2 nav-link">About</a>
+                <a href="#skills" class="block py-2 nav-link">Skills</a>
+                <a href="#projects" class="block py-2 nav-link">Projects</a>
+                <a href="#contact" class="block py-2 nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Vatsal Negi</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">Data Analyst</h2>
+                <p class="text-lg mb-8 text-slate-400 max-w-lg">
+                    I transform complex data into actionable insights that drive smarter decisions. 
+From cleaning and visualizing data to building predictive models, I help businesses unlock the power of their data. 
+Let's turn data into impact together.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 rounded-full btn-primary font-medium">Hire Me</a>
+                    <a href="#projects" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">View Work</a>
+                </div>
+                <div class="flex mt-8 space-x-4">
+                    <a href="https://github.com/VatsalNegi" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vatsal-negi-3624a12b6/" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/VatsalNegi" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:vatsalnegi412@gmail.com" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400"> 
+    <i class="fas fa-envelope"></i>
+</a>
+
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+                    <img src="Images/vatsal.jpg" 
+                         alt="Profile" 
+                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+                        <img src="Images/photo-Vatsal.jpg"alt="About" 
+                             class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800">
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
+                    <p class="text-slate-400 mb-6">
+                      I’m an MCA student with a strong interest in Data Science and Artificial Intelligence. I love exploring data patterns, building predictive models, and finding insights that drive smarter decisions. 
+                      I’ve developed projects like the CODEX Club Website and CodeVerse: Blogging Platform, completed a Python internship at NIT Nainital, and participated in Smart India Hackathon (SIH) 2025 to enhance my technical and analytical skills.
+                    </p>  
+                 <p class="text-slate-400 mb-6">
+                  I’ve also been part of the Student Organizers Team for Internal Hackathon 2025 and Web Sprint, enhancing my leadership and collaboration skills. I constantly aim to improve my skills in data preprocessing, visualization, and model optimization to deliver meaningful insights. My vision is to grow as a data-driven innovator, integrating machine learning, IoT, and data visualization to design intelligent systems that make technology more human-centric and impactful.
+                 </p>   
+
+                    
+                    <div class="flex space-x-4">
+                        <a href="Documents/Resume (Vatsal Negi).pdf" class="px-6 py-3 rounded-full btn-primary font-medium">Download Resume</a>
+                        <a href="#contact" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mini Project Section -->
+<section id="mini-project" class="py-20 bg-slate-950">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Featured <span class="gradient-text">Mini Project</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-primary transition-all">
+      <!-- Thumbnail (Left Side) -->
+      <div class="md:w-1/2 w-full mb-6 md:mb-0">
+        <img src="Images/Favicon Mini Project.jpg" 
+             alt="CareerSphere AI" 
+             class="rounded-2xl shadow-lg object-cover w-full h-72">
+      </div>
+
+      <!-- Description (Right Side) -->
+      <div class="md:w-1/2 md:pl-10 text-center md:text-left">
+        <h3 class="text-2xl font-semibold mb-3 text-white">
+          CareerSphere AI – Smart Student Wellness & Career Prediction
+        </h3>
+        <p class="text-slate-400 mb-3">
+          CareerSphere AI is a data-driven platform built using <strong>machine learning</strong> and 
+          <strong>predictive analytics</strong> to enhance student wellness and career growth. 
+          It predicts burnout levels, evaluates mental health, and recommends suitable internship opportunities.
+        </p>
+        <p class="text-slate-400 mb-3">
+          We have used ML models like <strong>Random Forest Classifier</strong> and <strong>XGBoost</strong> for predictions, 
+          and the system also generates a <strong>downloadable PDF report</strong> for each assessment to support data-driven decision-making.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+          <a href="Documents/Mini Project Synopsis.pdf" target="_blank" 
+             class="px-6 py-3 rounded-full btn-primary font-medium">
+            📄 View Synopsis
+          </a>
+
+          <a href="Documents/Mini Project Report.pdf" target="_blank" 
+             class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">
+            📘 View Report
+          </a>
+
+          <a href="Videos/Project Demo Video(Mini Project).mp4" target="_blank" 
+             class="px-6 py-3 rounded-full btn-primary font-medium">
+            🎥 Live Demo
+          </a>
+
+          <a href="https://github.com/VatsalNegi/CareerSphere-AI-Smart-Student-Wellness-Career-Prediction" target="_blank" 
+             class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">
+            💻 View Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+            <!-- Experience Timeline -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold mb-8 text-center">My <span class="gradient-text">Experience</span></h3>
+                
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-1/2 h-full w-0.5 bg-slate-700 transform -translate-x-1/2"></div>
+                    
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Web Development in PHP Intern</h4>
+                            <p class="text-sm text-slate-400 mb-2">Anonic Technologies Pvt Ltd</p>
+                            <p class="text-slate-300">
+                                Developed the <strong>CodeVerse Blogging Website</strong> using PHP and MySQL. 
+            Implemented both front-end and back-end features, including dynamic content management, user authentication, and interactive blog functionalities. 
+            Collaborated with the team to ensure seamless integration and responsive design.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Python Programming Intern</h4>
+                            <p class="text-sm text-slate-400 mb-2">Nanital Institute of Technology</p>
+                            <p class="text-slate-300">
+                                Completed hands-on projects and assignments in Python, focusing on data analysis, scripting, and automation. 
+            Worked on a data-driven project titled <strong>AirPulse: Predictive Air Quality Monitoring</strong>, 
+            where I analyzed air pollution data using Pandas and NumPy, and implemented ARIMA-based time series forecasting to predict future AQI levels. 
+            Visualized the insights using Matplotlib and Seaborn to support data-driven environmental analysis.
+                            </p>
+                        </div>
+                        <div class="order-1 w-5/12"></div>
+                    </div>
+                    
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">President & Event Organizer</h4>
+                            <p class="text-sm text-slate-400 mb-2">Technical Club CODEX</p>
+                            <p class="text-slate-300">
+                                Led the <strong>Technical Club Codex</strong> as President and successfully organized the university-level event 
+                    <strong>“Web Sprint”</strong>, a web development competition that attracted participation from multiple departments. 
+                    Oversaw event planning, team coordination, problem statement design, and judging criteria. 
+                    Guided participants throughout the event, promoted collaboration, and ensured a smooth and impactful technical experience for all attendees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+<section id="skills" class="py-20 bg-dark">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        My <span class="gradient-text">Skills</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Technical Skills -->
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Python (Pandas, NumPy)</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Data Visualization (Matplotlib, Seaborn, Plotly)</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">SQL / MySQL</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Machine Learning (Scikit-learn, ARIMA)</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Excel / Power BI / Google Sheets</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Skills -->
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Professional Skills</h3>
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Analytical Thinking</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 95%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Problem Solving</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Data Storytelling</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Communication & Presentation</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Team Collaboration</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools & Technologies -->
+    <div class="mt-16">
+      <h3 class="text-2xl font-bold mb-8 text-center">
+        Tools & <span class="gradient-text">Technologies</span>
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-brain text-4xl text-green-400 mb-2"></i>
+          <span>Machine Learning</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-cubes text-4xl text-yellow-400 mb-2"></i>
+          <span>TensorFlow</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-chart-line text-4xl text-indigo-400 mb-2"></i>
+          <span>Power BI</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-robot text-4xl text-pink-400 mb-2"></i>
+          <span>Prompt Engineering</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-globe text-4xl text-red-400 mb-2"></i>
+          <span>Google Collab</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-satellite-dish text-4xl text-orange-400 mb-2"></i>
+          <span>IoT</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-network-wired text-4xl text-teal-400 mb-2"></i>
+          <span>Networking</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-bolt text-4xl text-green-300 mb-2"></i>
+          <span>Streamlit</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-plug text-4xl text-cyan-400 mb-2"></i>
+          <span>REST APIs</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fas fa-layer-group text-4xl text-violet-400 mb-2"></i>
+          <span>Full Stack Development</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fab fa-java text-4xl text-red-500 mb-2"></i>
+          <span>Java</span>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+          <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+          <span>Git & Github</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+    <!-- Projects Section -->
+<section id="projects" class="py-20 bg-darker">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <!-- Data Analyst Projects -->
+    <div id="data-analyst-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/AirPulse(thumbnail).png" 
+               alt="AirPulse: Predictive Air Quality Monitoring" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">AirPulse: Predictive Air Quality Monitoring</h3>
+          <p class="text-slate-400 mb-4">
+            Predicted PM2.5 levels using ARIMA, created a Plotly dashboard with 30-day forecasts highlighting extreme pollution.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Pandas</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">ARIMA</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Plotly</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Matplotlib</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Seaborn</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(AirPulse).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://github.com/VatsalNegi/AirPulse-Predictive-Air-Quality-Monitoring-in-Beijing-using-ARIMA" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/Road Accident Severity Analysis(thumbnail).png" 
+               alt="Smart City Air Quality & Health Impact Analysis" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Road Accident Severity Analysis</h3>
+          <p class="text-slate-400 mb-4">
+           Analyzed 128K+ UK accident records to predict severity and identify high-risk zones using Random Forest (77.79% accuracy) and Power BI dashboards.
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">NumPy</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Matplotlib</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Seaborn</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Power BI</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Scikit-learn</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Random Forest</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(Road Accident Severity Analysis).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://github.com/VatsalNegi/Road-Accident-Severity-Analysis" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/AquaSafe(thumbnail).png" 
+               alt="COVID-19 Data Analytics Dashboard" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">AquaSafe: Smart Water Potability Prediction</h3>
+          <p class="text-slate-400 mb-4">
+            Built a Streamlit dashboard using Random Forest (68% accuracy) to predict water safety from 9 parameters with confidence scores and visual insights.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Feature Scaling</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Plotly</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Matplotlib</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Streamlit</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Dash</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Pandas</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(AquaSafe).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://github.com/VatsalNegi/Water-Quality-and-Potability" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Web Dev Projects -->
+    <div id="web-dev-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 hidden">
+      <!-- CODEX Club Website -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/CODEX Club(thumbnail).png" alt="CODEX Club Website" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">CODEX Club Website</h3>
+          <p class="text-slate-400 mb-4">Official technical club website of TMU, with interactive event and member sections.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">CSS</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(CODEX Club).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://tmucodexclub.netlify.app/" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CodeVerse Blogging Website -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/CodeVerse Blogging Website.png" alt="CodeVerse Blogging Website" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">CodeVerse: Blogging Website</h3>
+          <p class="text-slate-400 mb-4">Full-stack blogging platform built with PHP & MySQL, including authentication and admin panel.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">PHP</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">MySQL</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Bootstrap</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(CodeVerse Blogging Website).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://github.com/VatsalNegi/CodeVerse" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CODEX Exam Portal -->
+      <div class="project-card rounded-xl overflow-hidden card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="Images/CODEX Exam Portal.png" alt="CODEX Exam Portal" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">CODEX Exam Portal</h3>
+          <p class="text-slate-400 mb-4">Online exam system for coding quizzes with automated evaluation and leaderboard.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">PHP</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">MySQL</span>
+            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="Videos/Project Demo Video(CODEX Exam Portal).mp4" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fas fa-video"></i> Live Demo
+            </a>
+            <a href="https://github.com/VatsalNegi/Cx-Exam" target="_blank" class="text-primary hover:text-secondary">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- View All Projects Button -->
+    <div class="text-center mt-12">
+      <button id="viewAllBtn" class="px-8 py-3 rounded-full btn-primary font-medium inline-flex items-center">
+        View All Projects <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const viewBtn = document.getElementById('viewAllBtn');
+    const webProjects = document.getElementById('web-dev-projects');
+    let shown = false;
+
+    viewBtn.addEventListener('click', () => {
+      webProjects.classList.toggle('hidden');
+      shown = !shown;
+      viewBtn.innerHTML = shown 
+        ? 'Show Less <i class="fas fa-arrow-up ml-2"></i>'
+        : 'View All Projects <i class="fas fa-arrow-right ml-2"></i>';
+    });
+  </script>
+</section>
+
+<!-- 🏆 Certificates & Achievements Section -->
+<section id="certifications" class="py-20 bg-slate-950 text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        My <span class="gradient-text">Certificates & Achievements</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- 1️⃣ Python Programming -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" 
+             alt="Python Programming Certificate" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Python Programming Certificate</h3>
+        <p class="text-slate-400 text-center mb-3">Issued by <strong>Nainital Institute of Technology</strong></p>
+        <p class="text-slate-500 text-center mb-4">Completed training in Python fundamentals, data types, and automation concepts.</p>
+        <a href="Images/Python NIT.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 2️⃣ Web Development using PHP -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968332.png"
+             alt="Web Development PHP" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Web Development using PHP</h3>
+        <p class="text-slate-400 text-center mb-3">Anonic Technologies Pvt. Ltd, Roorkee</p>
+        <p class="text-slate-500 text-center mb-4">Developed dynamic web applications and backend modules using PHP & MySQL.</p>
+        <a href="Images/Anonic Technologies.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 3️⃣ Data Analysis with Python (IBM) -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149670.png"
+             alt="Data Analysis IBM" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Data Analysis with Python</h3>
+        <p class="text-slate-400 text-center mb-3">Issued by <strong>IBM – CognitiveClass.ai</strong></p>
+        <p class="text-slate-500 text-center mb-4">Learned data cleaning, visualization, and Pandas-based analytical techniques.</p>
+        <a href="Images/Data_Analysis_with_Python.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 4️⃣ Generative AI Mastermind -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+             alt="Generative AI" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Generative AI Mastermind Program</h3>
+        <p class="text-slate-400 text-center mb-3">Organized by <strong>Outskill</strong></p>
+        <p class="text-slate-500 text-center mb-4">Explored LLMs, prompt crafting, and hands-on GenAI workflows.</p>
+        <a href="Images/Gen AI Mastermind.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 5️⃣ Prompt Engineering for Everyone -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/9131/9131510.png"
+             alt="Prompt Engineering" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Prompt Engineering for Everyone</h3>
+        <p class="text-slate-400 text-center mb-3">Issued by <strong>IBM Skill Network</strong></p>
+        <p class="text-slate-500 text-center mb-4">Mastered AI prompt optimization and human-AI collaboration skills.</p>
+        <a href="Images/Prompt Engineering.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 6️⃣ AI for Beginners – HP Foundation -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712101.png"
+             alt="AI for Beginners" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">AI for Beginners</h3>
+        <p class="text-slate-400 text-center mb-3">By <strong>HP Foundation</strong></p>
+        <p class="text-slate-500 text-center mb-4">Introduction to artificial intelligence concepts and ethical AI use.</p>
+        <a href="Images/AI_for_Begineers.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 7️⃣ Deep Learning with TensorFlow -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png"
+             alt="TensorFlow" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Deep Learning with TensorFlow</h3>
+        <p class="text-slate-400 text-center mb-3">IBM – CognitiveClass.ai</p>
+        <p class="text-slate-500 text-center mb-4">Gained foundational skills in neural networks and TensorFlow-based modeling.</p>
+        <a href="Images/Deep Learning with TensorFlow.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 8️⃣ Tata iQ Virtual Job Simulation -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             alt="Tata iQ Simulation" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Tata iQ Virtual Job Simulation</h3>
+        <p class="text-slate-400 text-center mb-3">Hosted on <strong>Forage</strong></p>
+        <p class="text-slate-500 text-center mb-4">Completed real-world business analytics simulation tasks and reports.</p>
+        <a href="Images/Tata(Data Analytics).jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 9️⃣ BitByBit Coding Marathon -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+             alt="BitByBit Coding Marathon" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">BitByBit Coding Marathon</h3>
+        <p class="text-slate-400 text-center mb-3">Organized by <strong>IIT Roorkee (Cognizance'25)</strong></p>
+        <p class="text-slate-500 text-center mb-4">Participated in an intense national-level coding event.</p>
+        <a href="Images/BitByBit(Certificate).jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 🔟 Cybersecurity Workshop -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+             alt="Cybersecurity Workshop" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">CyberSecurity Workshop</h3>
+        <p class="text-slate-400 text-center mb-3">By <strong>Cyndia x IIT Roorkee</strong></p>
+        <p class="text-slate-500 text-center mb-4">Explored network security, ethical hacking, and encryption fundamentals.</p>
+        <a href="Images/Cyndia(CyberSecurity).jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 11️⃣ Web Sprint Event -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png"
+             alt="Web Sprint Event" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Web Sprint Event – Organizing Team</h3>
+        <p class="text-slate-400 text-center mb-3">CODEX Club, TMU Moradabad</p>
+        <p class="text-slate-500 text-center mb-4">Contributed to event planning, web coordination, and participant management.</p>
+        <a href="Images/Web Sprint.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+
+      <!-- 12️⃣ Internal Hackathon Organizer -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-primary hover:shadow-lg transition-all">
+        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png"
+             alt="Hackathon Organizer" class="rounded-xl mb-4 h-32 w-32 mx-auto object-contain bg-slate-800 p-4 rounded-full">
+        <h3 class="text-xl font-semibold mb-2 text-center">Student Organizer – Internal Hackathon 2025</h3>
+        <p class="text-slate-400 text-center mb-3">CODEX Club TMU, Moradabad</p>
+        <p class="text-slate-500 text-center mb-4">Led organizing efforts and coordinated technical teams for the hackathon event.</p>
+        <a href="Images/Internal Hackathon 2025.jpg" target="_blank" class="block text-center px-4 py-2 bg-primary hover:bg-secondary text-white rounded-lg transition">View Certificate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="text-slate-400 mb-8">
+                        Feel free to reach out to me for any questions or opportunities. 
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-slate-400">Moradabad, Uttar Pradesh</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-slate-400">vatsalnegi412@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-slate-400">+91 9528618806</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/VatsalNegi" class="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vatsal-negi-3624a12b6/" class="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="https://x.com/VatsalNegi" class="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="mailto:vatsalnegi412@gmail.com" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400"> 
+    <i class="fas fa-envelope"></i>
+</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 rounded-full btn-primary font-medium w-full">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Vatsal Negi| Data Analyst</a>
+                    <p class="text-slate-400 mt-2">© 2025 Vatsal Negi. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/VatsalNegi" class="text-slate-400 hover:text-primary transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vatsal-negi-3624a12b6/" class="text-slate-400 hover:text-blue-600 transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://x.com/VatsalNegi" class="text-slate-400 hover:text-blue-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="mailto:vatsalnegi412@gmail.com" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400"> 
+    <i class="fas fa-envelope"></i>
+</a>
+                </div>
+            </div>
+            
+           <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+    <p>Transforming data into insights with precision, passion, and purpose.</p>
+</div>
+
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // Show/hide back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            if (scrollPosition > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.getElementById('skills');
+            const skillsSectionTop = skillsSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            if (window.scrollY > skillsSectionTop - windowHeight + 200) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', animateSkillBars);
+            }
+        };
+        
+        window.addEventListener('scroll', animateSkillBars);
+    </script>
+</body>
+</html>
